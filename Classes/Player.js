@@ -7,8 +7,15 @@ module.exports = class Player {
     constructor() {
         this.type = "";
         this.id = shortID.generate();
-        this.username = '';
+        this.lobby = 0;
+        this.username = "Default Player";
         this.position = new Vector3();
         this.rotation = new Quaternion();
     }
+
+    displayPlayerInformation() {
+        let player = this;
+        return '(' + player.username + ':' + player.id + ')';
+    }
 }
+
