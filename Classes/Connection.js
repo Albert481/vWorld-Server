@@ -35,5 +35,10 @@ module.exports = class Connection {
 
             socket.broadcast.to(connection.lobby.id).emit('updatePosition', player);
         })
+
+        socket.on('chatMessage', function(data) {
+            console.log('broadcasting: ' + data);
+            socket.emit('chatMessage', data);
+        })
     }
 }
