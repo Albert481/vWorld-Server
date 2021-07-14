@@ -37,8 +37,8 @@ module.exports = class Connection {
         })
 
         socket.on('chatMessage', function(data) {
-            console.log('broadcasting: ' + data);
-            socket.emit('chatMessage', data);
+            console.log('broadcasting: ' + JSON.stringify(data));
+            socket.broadcast.to(connection.lobby.id).emit('chatMessage', data);
         })
     }
 }
